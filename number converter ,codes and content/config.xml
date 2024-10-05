@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.voltbuilder.sample" xmlns="http://www.w3.org/ns/widgets" version="1.0.0">
+  <name>number converter</name>
+  <description>our project is an app that converts numbers fromdecimal to binary to octal then to hexadecimal</description>
+  <plugin name="cordova-plugin-device" />
+  <access origin="*" />
+</widget>
+
+
+
+
+
+
+
+
+
+

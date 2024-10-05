@@ -1,0 +1,7 @@
+{
+  "androidAlias": "key0",
+  "androidAliasPassword": "mypassword",
+  "androidKeystore": "certificates/android.keystore",
+  "androidKeystorePassword": "mypassword",
+  "release": "release"
+}
