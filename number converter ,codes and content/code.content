@@ -1,98 +1,125 @@
 <!DOCTYPE html>
 <html>
-<head><script src="cordova.js"></script>
-    <!--in the src above we have cordava.js is a java script 
-    file that contains frame work that provides necesarry tools to interact with native device features-->
-    <meta charset="UTF-8">
-    <!--the meta tag above Specifies the character encoding for the HTML document-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--the meta tag above helps control the layout of web pages on different devices 
-    the view port refers to the visible area of a web page on a display device,note that the 
-    value 1.0 means no zoom and that the initial-scale sets the zoom level-->
+<head>
+    <script src="cordova.js"></script>
 
-    <title>number converter</title>
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Number Converter</title>
     <style>
         body {
-            font-family: Arial, sans-serif;/* Sets the
-             font of the entire document to Arial, with sans-serif as a fallback */
-            margin: 20px;/* Adds a 20-pixel margin
-             around the entire document */
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            text-align: center;
+            margin-top: 15%;
+            margin-left: 35%;
+            border-style: solid;
+            width: 24%;
+            background-color: rgb(109, 72, 145);
         }
         input {
-            margin-bottom: 10px; /* Adds a 10-pixel margin above elements with the class "result" */
+            margin-bottom: 10px; 
         }
         .result {
-            margin-top: 10px;
-            font-weight: bold;/* Makes the text bold for 
-            elements with the class "result" */
+            margin-top: 10px; 
+            font-weight: bold;
         }
+        h1{
+            transition: transform 0.2s ease-in-out;
+        }
+        h1:hover{
+            transform: scale(1.1);
+         animation: pulse o.8s infinite;
+        }
+        button{
+            border-radius: 15px;
+            box-shadow: 5px 15px 15px black;
+            transition: transform 0.2s ease-in-out;
+        }
+        button:hover{
+            transform: scale(1.1);
+         animation: pulse o.8s infinite;
+        }
+        input{
+            
+            background-color: rgb(109, 72, 145);
+        }
+      
     </style>
 </head>
 <body>
-    <h1>Number Converter</h1>
+    <h1><b><ins>Number Converter</ins></b></h1> 
     <label for="numberInput">Enter a number:</label>
-    <!--the label tag above creates a label for the input field-->
+   
     <input type="text" id="numberInput" />
-    <!-- Input field where the user can enter text.The 'id' attribute links it to the label above -->
+    
     
     <br><label for="baseSelect">Choose the base:</label>
-    <!--the above code creates a drop down menu, the for atribute is linked to the id below-->
+
     <select id="baseSelect">
         <option value="decimal">Decimal</option>
         <option value="binary">Binary</option>
         <option value="octal">Octal</option>
         <option value="hexadecimal">Hexadecimal</option>
-    <!--This creates an option in the dropdown menu for i.e "decimal" while the value attribute  sets the value of the option "decimal"-->
+      
     </select>
     
     
-    <!-- Button that triggers the convertNumber function when clicked -->
-    <br><br><button onclick="convertNumber()">Click To Convert</button>
-    <!--the button tag creates a clickable button ellement,the onclick attribute specifies 
-    a JavaScript function to be executed when the button is clicked.-->
+    <br><br><button onclick="convertNumber()"><b>Click To Convert</b></button>
+
 
     <div class="result" id="result"></div>
-    <!-- the div elemement is used to display conversion units Applies the CSS styles defined for the result class,i.e margin-top: 10px and font-weight: bold.-->
-
+    
+    
     <script>
-        function convertNumber() {   // Defines a function convertNumber that will be executed when called
-            const input = document.getElementById('numberInput').value; //Retrieves the value entered in the input field with the id “numberInput”.
-            const base = document.getElementById('baseSelect').value;   //Retrieves the selected base from the dropdown menu with the id “baseSelect”
+        function convertNumber() {
+           
+            const input = document.getElementById('numberInput').value; 
+            
+            const base = document.getElementById('baseSelect').value;
+            
             let decimalNumber;
 
-            // Convert input to decimal based on the selected base
+           
             if (base === 'decimal') {
                 decimalNumber = parseInt(input);
-                 // if (base === 'decimal')Checks if the selected base is “decimal” and converts the input accordingly.
+               
             } else if (base === 'binary') {
                 decimalNumber = parseInt(input, 2);
-                 // else if (base === 'binary') Checks if the selected base is “binary” and converts the input from binary to decimal.
+                
             } else if (base === 'octal') {
                 decimalNumber = parseInt(input, 8);
-                //else if (base === 'octal')Checks if the selected base is “octal” and converts the input from octal to decimal.
+             
             } else if (base === 'hexadecimal') {
                 decimalNumber = parseInt(input, 16);
-                // else if (base === 'hexadecimal')Checks if the selected base is “hexadecimal” and converts the input from hexadecimal to decimal.
             }
 
             if (isNaN(decimalNumber)) {
                 document.getElementById('result').innerText = 'Please enter a valid number.';
+               
                 return;
-                //if (isNaN(decimalNumber)) { ... }: Checks if the conversion resulted in a valid number. If not, it displays an error message and exits the function.
             }
 
-            // Convert decimal to other bases
-            const binary = decimalNumber.toString(2);//Converts the decimal number to binary.
-            const octal = decimalNumber.toString(8);//Converts the decimal number to octal.
-            const hexadecimal = decimalNumber.toString(16).toUpperCase();//Converts the decimal number to hexadecimal and makes the result uppercase.
+         
+            const binary = decimalNumber.toString(2);
+           
+            const octal = decimalNumber.toString(8);
+            
+            const hexadecimal = decimalNumber.toString(16).toUpperCase();
+           
 
-             document.getElementById('result').innerHTML = `
+            document.getElementById('result').innerHTML = `
                 Decimal: ${decimalNumber}<br>
                 Binary: ${binary}<br>
                 Octal: ${octal}<br>
                 Hexadecimal: ${hexadecimal}
             `;
+           
         }
     </script>
 </body>
 </html>
+   
+           
