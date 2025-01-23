@@ -9,15 +9,21 @@
     
     <title>Number Converter</title>
     <style>
-        body {
+        #box1 {
+            background-size: cover;
             font-family: Arial, sans-serif; 
             margin: 20px; 
             text-align: center;
-            margin-top: 15%;
-            margin-left: 35%;
+          position: absolute;
+          top: 23%;
+          left: 16%;
+          
             border-style: solid;
-            width: 24%;
+            width: 61%;
             background-color: rgb(109, 72, 145);
+           border-radius: 15px;
+           background-attachment: fixed;
+           background-position: center;
         }
         input {
             margin-bottom: 10px; 
@@ -49,7 +55,7 @@
       
     </style>
 </head>
-<body>
+<div id="box1">
     <h1><b><ins>Number Converter</ins></b></h1> 
     <label for="numberInput">Enter a number:</label>
    
@@ -119,7 +125,5 @@
            
         }
     </script>
-</body>
+</div>
 </html>
-   
-           
